@@ -33,16 +33,6 @@
 <br />
 <br />
 
----
-
-<details>
-  <summary>:zap: Recent GitHub Activity</summary>
-  
-<!--START_SECTION:activity-->
-<!--END_SECTION:activity-->
-
-</details>
-
 [website]: https://joriswebdev.com
 [twitter]: https://twitter.com/ItzJoris0
 [instagram]: https://instagram.com/itzjoris03
