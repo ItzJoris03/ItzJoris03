@@ -1,6 +1,6 @@
 ### Hi there, I'm Joris 👋 
 
-[![Website](https://img.shields.io/website?label=codeSTACKr.com&style=for-the-badge&url=https%3A%2F%2Fcodestackr.com)](https://joriswebdev.com)
+[![Website](https://img.shields.io/website?label=codeSTACKr.com&style=for-the-badge&url=https%3A%2F%2Fjoriswebdev.com)](https://joriswebdev.com)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ItzJoris03?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fgithub.com%2FItzJoris03&screen_name=ItzJoris03)
 
 ## I'm a Student - Computer Science!!
