@@ -39,7 +39,7 @@
 
 ### Finished Projects:
 
-- [<img align="left" alt="Reinerink's Vis" width="20px" src="https://github.com/ItzJoris03/reinerinksvis/blob/main/assets/img/header-logo.png"/> Reinerink's Vis](https://reinerinksvis.nl/)
+- [<img align="left" alt="Reinerink's Vis" width="20px" src="https://github.com/ItzJoris03/reinerinksvis/blob/main/assets/img/header-logo.png"/> Reinerink's Vis](https://reinerinksvis.nl/) ~ 19-11-2021
 
 [website]: https://joriswebdev.com
 [twitter]: https://twitter.com/ItzJoris03
