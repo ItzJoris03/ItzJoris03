@@ -7,7 +7,7 @@
 
 - 🔭 I Love building websites!
 - 🌱 I’m currently learning databases
-- 🥅 2021 Goals: Starting as a freelancer
+- 🥅 2022 Goals: Starting as a freelancer
 - ⚡ Fun fact: I love learning languages
 
 ### Connect with me:
