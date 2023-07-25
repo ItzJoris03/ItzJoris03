@@ -6,13 +6,13 @@
 ## I'm a Student - Computer Science!!
 
 - 🔭 I Love building websites!
-- 🌱 I’m currently learning C# & React Native (JS)
-- 🥅 2022 Goals: Intergrating in Sweden
+- 🌱 I’m currently learning Swedish...
+- 🥅 2023 Goals: Starting as Freelance Web Developer
 - ⚡ Fun fact: I love learning languages
 
 ### Connect with me:
 
-[<img align="left" alt="joriswebdev.com" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][website]
+[<img align="left" alt="jorishummel.com" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][website]
 [<img align="left" alt="ItzJoris03 | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
 [<img align="left" alt="jorish03 | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
 [<img align="left" alt="ItzJoris03 | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
@@ -44,7 +44,7 @@
 
 - [<img align="left" alt="Reinerink's Vis" width="20px" src="https://github.com/ItzJoris03/reinerinksvis/blob/main/assets/img/header-logo.png"/> Reinerink's Vis](https://reinerinksvis.nl/) ~ 19-11-2021
 
-[website]: https://joriswebdev.com
+[website]: https://jorishummel.com
 [twitter]: https://twitter.com/ItzJoris03
 [instagram]: https://instagram.com/itzjoris03
 [linkedin]: https://linkedin.com/in/JorisH03
