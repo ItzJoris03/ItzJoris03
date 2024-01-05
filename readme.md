@@ -44,5 +44,5 @@
 
 [website]: https://jorishummel.com
 [twitter]: https://twitter.com/ItzJoris03
-[instagram]: https://instagram.com/itzjoris03
+[instagram]: https://instagram.com/joris.h03
 [linkedin]: https://linkedin.com/in/JorisH03
