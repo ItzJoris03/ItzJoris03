@@ -5,9 +5,9 @@
 
 ## I'm a Student - Computer Science!!
 
-- 🔭 I Love building websites!
-- 🌱 I’m currently learning Swedish...
-- 🥅 2023 Goals: Starting as Freelance Web Developer
+- 🔭 I Love building websites and apps!
+- 🌱 I’m currently learning Swedish and React Native...
+- 🥅 2024 Goals: Starting as Freelance Web Developer
 - ⚡ Fun fact: I love learning languages
 
 ### Connect with me:
