@@ -40,6 +40,7 @@
 
 ### Finished Projects:
 
+- [<img align="left" alt="Joris Hummel IT Solutions" width="20px" src="https://github.com/ItzJoris03/jorishummel.com/blob/main/client/src/assets/img/header-logo.png"/> Joris Hummel](https://jorishummel.com/) ~ 15-03-2024
 - [<img align="left" alt="Reinerink's Vis" width="20px" src="https://github.com/ItzJoris03/reinerinksvis/blob/main/assets/img/header-logo.png"/> Reinerink's Vis](https://reinerinksvis.nl/) ~ 19-11-2021
 
 [website]: https://jorishummel.com
