@@ -1,49 +1,60 @@
-### Hi there, I'm Joris 👋 
+<h1 align="left">
+    <img src="https://readme-typing-svg.herokuapp.com/?font=Sans&size=48&center=true&vCenter=true&width=500&height=70&color=e17100&duration=4000&lines=Hi+There!+👋;+I'm+Joris+Hummel!;" />
+</h1>
 
-[![Website](https://img.shields.io/website?label=jorishummel.com&style=for-the-badge&url=https%3A%2F%2Fjorishummel.com)](https://jorishummel.com)
-[![Twitter Follow](https://img.shields.io/twitter/follow/ItzJoris03?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fgithub.com%2FItzJoris03&screen_name=ItzJoris03)
+### A CS student loving building the web / app.
 
-## I'm a Student - Computer Science!!
+- 🌱 I’m currently learning **[Computer Science]([https://roadmap.sh/system-design](https://www.kau.se/utbildning/program-och-kurser/program/TGKDV))**
+- 💬 Passion for coding; **React, Node.js, TailwindCSS... and many more**
 
-- 🔭 I Love building websites and apps!
-- 🌱 I’m currently learning Swedish and React Native...
-- 🥅 2024 Goals: Starting as Freelance Web Developer
-- ⚡ Fun fact: I love learning languages
+<br>
 
-### Connect with me:
+## ⚡️ Stats
 
-[<img align="left" alt="jorishummel.com" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][website]
-[<img align="left" alt="ItzJoris03 | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="jorish03 | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="ItzJoris03 | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
+<br>
 
-<br />
+<div align=center>
+  <img width=390 src="https://github-readme-stats.vercel.app/api?username=ItzJoris03&theme=transparent&count_private=true&show_icons=true&rank_icon=github&locale=en" alt="ItzJoris03's GitHub Stats" />
+  <img width=390 src="https://github-readme-streak-stats.herokuapp.com/?user=ItzJoris03&theme=transparent&count_private=true&border_radius=10&locale=en" alt="ItzJoris03's" />
+  <img width=325 src="https://github-readme-stats.vercel.app/api/top-langs?username=ItzJoris03&theme=transparent&layout=donut&hide=css&langs_count=8&border_radius=10&show_icons=true&locale=en" alt="ItzJoris03's Most Used Languages" />
+</div>
 
-### Languages and Tools:
+<hr>
 
-<img align="left" alt="Visual Studio Code" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />
-<img align="left" alt="HTML5" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />
-<img align="left" alt="CSS3" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />
-<img align="left" alt="Sass" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sass/sass.png" />
-<img align="left" alt="JavaScript" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />
-<img align="left" alt="SQL" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sql/sql.png" />
-<img align="left" alt="React" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />
-<img align="left" alt="Git" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" />
-<img align="left" alt="GitHub" width="26px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" />
+## 🛠️ Languages and Tools
 
-<br />
-<br />
+<br>
 
----
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=ts,nodejs,react,vite,mongodb,linux,java" />
+  <img src="https://skillicons.dev/icons?i=html,css,sass,tailwind,js,cs,git,postman" />
+</p>
 
-<br />
+<hr>
 
-### Finished Projects:
+## 🐍 My Contributions
 
-- [Joris Hummel](https://jorishummel.com/) ~ 15-03-2024
-- [<img align="left" alt="Reinerink's Vis" width="20px" src="https://github.com/ItzJoris03/reinerinksvis/blob/main/assets/img/header-logo.png"/> Reinerink's Vis](https://reinerinksvis.nl/) ~ 19-11-2021
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ItzJoris03/ItzJoris03/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ItzJoris03/ItzJoris03/output/github-contribution-grid-snake.svg" />
+    <img alt="github-snake" src="https://raw.githubusercontent.com/ItzJoris03/ItzJoris03/output/github-contribution-grid-snake.svg" />
+  </picture>
+</div>
 
-[website]: https://jorishummel.com
-[twitter]: https://twitter.com/ItzJoris03
-[instagram]: https://instagram.com/joris.h03
-[linkedin]: https://linkedin.com/in/JorisH03
+<hr>
+
+<div align="center">
+  <a href="https://jorishummel.com" target="_blank">
+    <img src="https://img.shields.io/website?label=jorishummel.com&style=for-the-badge&url=https%3A%2F%2Fjorishummel.com" height="35" alt="instagram logo"  />
+  </a>
+  <a href="https://www.instagram.com/joris.h03/" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="instagram logo"  />
+  </a>
+  <a href="https://www.linkedin.com/in/JorisH03/" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
+  </a>
+  <a href="https://x.com/ItzJoris03" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="twitter logo"  />
+  </a>
+</div>
