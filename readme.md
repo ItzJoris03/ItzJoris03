@@ -46,7 +46,7 @@
   </table>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="output/stats/streak-dark.svg" />
-    <img src="output/stats/streak-light.svg" alt="GitHub streak" />
+    <img src="output/stats/streak-light.svg" alt="GitHub streak" width="400" />
   </picture>
 </div>
 

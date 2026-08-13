@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sys
+from datetime import datetime
 import urllib.error
 import urllib.request
 
@@ -287,50 +288,135 @@ query($login: String!) {
 
 
 def compute_streaks(days):
-    """Return current/longest streak and total contributions from a calendar."""
+    """Return current/longest streak, their date ranges, and total contributions."""
     days = sorted(days, key=lambda d: d["date"])
     counts = [d["contributionCount"] for d in days]
     total = sum(counts)
+
     # Current streak walks backwards from the last day; a zero on the very
     # last day is treated as "today, not over yet" and skipped.
     cur = 0
     idx = len(counts) - 1
     if counts and counts[idx] == 0:
         idx -= 1
+    cur_end = idx
     while idx >= 0 and counts[idx] > 0:
         cur += 1
         idx -= 1
+    cur_start = idx + 1
+
+    # Longest streak: track the best consecutive run.
     longest = 0
     run = 0
-    for c in counts:
+    run_start = 0
+    best_start = 0
+    best_end = 0
+    for i, c in enumerate(counts):
         if c > 0:
+            if run == 0:
+                run_start = i
             run += 1
-            longest = max(longest, run)
+            if run > longest:
+                longest = run
+                best_start = run_start
+                best_end = i
         else:
             run = 0
-    return {"current": cur, "longest": longest, "total": total}
+
+    return {
+        "current": cur,
+        "current_start": days[cur_start]["date"] if cur else "",
+        "current_end": days[cur_end]["date"] if cur else "",
+        "longest": longest,
+        "longest_start": days[best_start]["date"] if longest else "",
+        "longest_end": days[best_end]["date"] if longest else "",
+        "total": total,
+    }
+
+
+def fmt_date(iso, with_year=False):
+    dt = datetime.strptime(iso, "%Y-%m-%d")
+    return dt.strftime("%b %d, %Y") if with_year else dt.strftime("%b %d")
 
 
 def streak_svg(streak, t):
-    body = []
-    rows = [
-        ("Current streak", f"{streak['current']} days"),
-        ("Longest streak", f"{streak['longest']} days"),
-        ("Contributions (this year)", str(streak["total"])),
+    """Reproduce the github-readme-streak-stats 'transparent' theme look."""
+    # The original theme is theme-agnostic (works on light and dark), so both
+    # variants render identical content.
+    W, H = 495, 195
+    blue = "#006AFF"
+    blue_dark = "#0579C3"
+    grey = "#417E87"
+    border = "#E4E2E2"
+    font = "'Segoe UI', Ubuntu, sans-serif"
+
+    body = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" '
+        f'width="{W}px" height="{H}px" direction="ltr" role="img" aria-label="GitHub streak">',
+        "<style>"
+        "@keyframes fadein{0%{opacity:0}100%{opacity:1}}"
+        "@keyframes currstreak{0%{font-size:3px;opacity:.2}80%{font-size:34px;opacity:1}100%{font-size:28px;opacity:1}}"
+        "</style>",
+        f"<defs><mask id='mask_out_ring_behind_fire'>"
+        f"<rect width='{W}' height='{H}' fill='white'/>"
+        f"<ellipse cx='247.5' cy='32' rx='13' ry='18' fill='black'/>"
+        "</mask></defs>",
+        f'<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="10" '
+        f'fill="none" stroke="{border}"/>',
+        f'<line x1="165" y1="28" x2="165" y2="170" stroke="{border}"/>',
+        f'<line x1="330" y1="28" x2="330" y2="170" stroke="{border}"/>',
     ]
-    y = 82
-    for label, value in rows:
-        body.append(
-            f'<text x="28" y="{y}" font-family="Segoe UI, Helvetica, Arial, sans-serif" '
-            f'font-size="13" fill="{t["secondary"]}">{esc(label)}</text>'
+
+    def text(cx, y, size, weight, fill, content, anim="fadein", delay=0.6):
+        style = f"opacity:0;animation:{anim} 0.5s linear forwards {delay}s" if anim != "currstreak" else f"animation:{anim} 0.6s linear forwards"
+        return (
+            f'<text x="{cx}" y="{y}" text-anchor="middle" fill="{fill}" '
+            f'font-family="{font}" font-weight="{weight}" font-size="{size}px" '
+            f'style="{style}">{content}</text>'
         )
-        body.append(
-            f'<text x="372" y="{y}" text-anchor="end" '
-            f'font-family="ui-monospace, SFMono-Regular, Menlo, monospace" '
-            f'font-size="14" font-weight="600" fill="{t["num"]}">{esc(value)}</text>'
-        )
-        y += 40
-    return card_frame("GitHub Streak", t, body)
+
+    # Column 1: Total Contributions
+    body.append(text(82.5, 80, 28, 700, blue, streak["total"]))
+    body.append(text(82.5, 116, 14, 400, blue, "Total Contributions", delay=0.7))
+    body.append(text(82.5, 146, 12, 400, grey, f"{streak['since']} - Present", delay=0.8))
+
+    # Column 2: Current Streak — fire, ring, number, label, range
+    flame = (
+        "M 1.5 0.67 C 1.5 0.67 2.24 3.32 2.24 5.47 C 2.24 7.53 0.89 9.2 -1.17 9.2 "
+        "C -3.23 9.2 -4.79 7.53 -4.79 5.47 L -4.76 5.11 C -6.78 7.51 -8 10.62 -8 13.99 "
+        "C -8 18.41 -4.42 22 0 22 C 4.42 22 8 18.41 8 13.99 C 8 8.6 5.41 3.79 1.5 0.67 Z "
+        "M -0.29 19 C -2.07 19 -3.51 17.6 -3.51 15.86 C -3.51 14.24 -2.46 13.1 -0.7 12.74 "
+        "C 1.07 12.38 2.9 11.53 3.92 10.16 C 4.31 11.45 4.51 12.81 4.51 14.2 "
+        "C 4.51 16.85 2.36 19 -0.29 19 Z"
+    )
+    body.append(
+        f'<g transform="translate(247.5, 19.5)" style="opacity:0;animation:fadein 0.5s linear forwards 0.6s">'
+        f'<path d="{flame}" fill="{blue}"/></g>'
+    )
+    body.append(
+        f'<g mask="url(#mask_out_ring_behind_fire)">'
+        f'<circle cx="247.5" cy="71" r="40" fill="none" stroke="{blue}" stroke-width="5" '
+        f'style="opacity:0;animation:fadein 0.5s linear forwards 0.4s"/></g>'
+    )
+    body.append(text(247.5, 80, 28, 700, blue_dark, streak["current"], anim="currstreak"))
+    body.append(text(247.5, 140, 14, 700, blue_dark, "Current Streak", delay=0.9))
+    body.append(
+        text(247.5, 166, 12, 400, grey,
+             f"{fmt_date(streak['current_start'])} - {fmt_date(streak['current_end'])}" if streak["current"] else "No streak yet",
+             delay=0.9)
+    )
+
+    # Column 3: Longest Streak
+    body.append(text(412.5, 80, 28, 700, blue, streak["longest"], delay=1.2))
+    body.append(text(412.5, 116, 14, 400, blue, "Longest Streak", delay=1.3))
+    body.append(
+        text(412.5, 146, 12, 400, grey,
+             f"{fmt_date(streak['longest_start'], True)} - {fmt_date(streak['longest_end'], True)}" if streak["longest"] else "No contributions yet",
+             delay=1.4)
+    )
+
+    body.append("</svg>\n")
+    return "".join(body)
 
 
 def main():
@@ -374,6 +460,7 @@ def main():
         for week in data["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]:
             days.extend(week["contributionDays"])
         streak = compute_streaks(days)
+        streak["since"] = datetime.strptime(user["created_at"][:10], "%Y-%m-%d").strftime("%b %d, %Y")
     except Exception as exc:
         print(f"warning: streak computation failed: {exc}", file=sys.stderr)
 
