@@ -44,7 +44,10 @@
       </td>
     </tr>
   </table>
-  <img width="400" src="https://streak-stats.demolab.com/?user=ItzJoris03&theme=transparent&border_radius=10&locale=en" alt="GitHub streak" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="output/stats/streak-dark.svg" />
+    <img src="output/stats/streak-light.svg" alt="GitHub streak" />
+  </picture>
 </div>
 
 ### Contributions

@@ -18,8 +18,10 @@ import urllib.request
 
 OWNER = os.environ.get("PROFILE_OWNER", "ItzJoris03")
 TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+GRAPHQL_TOKEN = os.environ.get("GH_PAT") or os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
 OUT_DIR = os.environ.get("OUT_DIR", "output/stats")
 API_BASE = "https://api.github.com"
+GRAPHQL_URL = "https://api.github.com/graphql"
 CARD_W = 400
 CARD_H = 200
 
@@ -249,6 +251,88 @@ def langs_svg(langs, t):
     return card_frame("Top Languages", t, body)
 
 
+def graphql_query(query, variables=None):
+    """Run a GraphQL query against the GitHub API."""
+    req = urllib.request.Request(
+        GRAPHQL_URL,
+        data=json.dumps({"query": query, "variables": variables or {}}).encode("utf-8"),
+    )
+    if GRAPHQL_TOKEN:
+        req.add_header("Authorization", f"Bearer {GRAPHQL_TOKEN}")
+    req.add_header("Content-Type", "application/json")
+    req.add_header("User-Agent", "profile-stats-generator")
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        payload = json.load(resp)
+    if payload.get("errors"):
+        raise RuntimeError(payload["errors"])
+    return payload["data"]
+
+
+CONTRIBUTIONS_QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    contributionsCollection {
+      contributionCalendar {
+        weeks {
+          contributionDays {
+            date
+            contributionCount
+          }
+        }
+      }
+    }
+  }
+}
+"""
+
+
+def compute_streaks(days):
+    """Return current/longest streak and total contributions from a calendar."""
+    days = sorted(days, key=lambda d: d["date"])
+    counts = [d["contributionCount"] for d in days]
+    total = sum(counts)
+    # Current streak walks backwards from the last day; a zero on the very
+    # last day is treated as "today, not over yet" and skipped.
+    cur = 0
+    idx = len(counts) - 1
+    if counts and counts[idx] == 0:
+        idx -= 1
+    while idx >= 0 and counts[idx] > 0:
+        cur += 1
+        idx -= 1
+    longest = 0
+    run = 0
+    for c in counts:
+        if c > 0:
+            run += 1
+            longest = max(longest, run)
+        else:
+            run = 0
+    return {"current": cur, "longest": longest, "total": total}
+
+
+def streak_svg(streak, t):
+    body = []
+    rows = [
+        ("Current streak", f"{streak['current']} days"),
+        ("Longest streak", f"{streak['longest']} days"),
+        ("Contributions (this year)", str(streak["total"])),
+    ]
+    y = 82
+    for label, value in rows:
+        body.append(
+            f'<text x="28" y="{y}" font-family="Segoe UI, Helvetica, Arial, sans-serif" '
+            f'font-size="13" fill="{t["secondary"]}">{esc(label)}</text>'
+        )
+        body.append(
+            f'<text x="372" y="{y}" text-anchor="end" '
+            f'font-family="ui-monospace, SFMono-Regular, Menlo, monospace" '
+            f'font-size="14" font-weight="600" fill="{t["num"]}">{esc(value)}</text>'
+        )
+        y += 40
+    return card_frame("GitHub Streak", t, body)
+
+
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -283,13 +367,29 @@ def main():
         "joined": user.get("created_at", "")[:4],
     }
 
+    streak = None
+    try:
+        data = graphql_query(CONTRIBUTIONS_QUERY, {"login": OWNER})
+        days = []
+        for week in data["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]:
+            days.extend(week["contributionDays"])
+        streak = compute_streaks(days)
+    except Exception as exc:
+        print(f"warning: streak computation failed: {exc}", file=sys.stderr)
+
     for name, theme in THEMES.items():
         with open(os.path.join(OUT_DIR, f"stats-{name}.svg"), "w") as fh:
             fh.write(stats_svg(stats, theme))
         with open(os.path.join(OUT_DIR, f"langs-{name}.svg"), "w") as fh:
             fh.write(langs_svg(top_pcts, theme))
+        if streak is not None:
+            with open(os.path.join(OUT_DIR, f"streak-{name}.svg"), "w") as fh:
+                fh.write(streak_svg(streak, theme))
 
-    print(json.dumps({"stats": stats, "top_languages": [(n, round(p, 1)) for n, p in top_pcts]}, indent=2))
+    summary = {"stats": stats, "top_languages": [(n, round(p, 1)) for n, p in top_pcts]}
+    if streak is not None:
+        summary["streak"] = streak
+    print(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":

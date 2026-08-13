@@ -24,6 +24,8 @@ jobs:
 
       - name: Generate stats SVGs
         run: python3 .github/scripts/generate_stats.py
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
 
       - name: Commit and push generated cards
         run: |
