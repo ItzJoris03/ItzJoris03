@@ -1,38 +1,53 @@
-<h1 align="left">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Sans&size=48&center=true&vCenter=true&width=500&height=70&color=e17100&duration=4000&lines=Hi+There!+👋;+I'm+Joris+Hummel!;" />
+<h1 align="center">
+  <img src="assets/avatar.png" width="150" alt="Joris Hummel avatar" />
 </h1>
 
-### A CS student loving building the web / app.
+<h2 align="center">Joris Hummel</h2>
 
-- 🌱 I’m currently learning **[Computer Science]([https://roadmap.sh/system-design](https://www.kau.se/utbildning/program-och-kurser/program/TGKDV))**
-- 💬 Passion for coding; **React, Node.js, TailwindCSS... and many more**
-
-<br>
-
-## ⚡️ Stats
-
-<br>
-
-<div align=center>
-  <img width=390 src="https://github-readme-stats.vercel.app/api?username=ItzJoris03&theme=transparent&count_private=true&show_icons=true&rank_icon=github&locale=en" alt="ItzJoris03's GitHub Stats" />
-  <img width=390 src="https://github-readme-streak-stats.herokuapp.com/?user=ItzJoris03&theme=transparent&count_private=true&border_radius=10&locale=en" alt="ItzJoris03's" />
-  <img width=325 src="https://github-readme-stats.vercel.app/api/top-langs?username=ItzJoris03&theme=transparent&layout=donut&hide=css&langs_count=8&border_radius=10&show_icons=true&locale=en" alt="ItzJoris03's Most Used Languages" />
-</div>
-
-<hr>
-
-## 🛠️ Languages and Tools
-
-<br>
+<p align="center"><em>CS student @ Karlstad University — software that lives in the browser, and software that lives in the terminal.</em></p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=ts,nodejs,react,vite,mongodb,linux,java" />
-  <img src="https://skillicons.dev/icons?i=html,css,sass,tailwind,js,cs,git,postman" />
+  <a href="https://github.com/ItzJoris03/matrix"><img src="https://img.shields.io/badge/Matrix%20TUI-Rust-black?style=for-the-badge&logo=rust&logoColor=white" alt="Matrix TUI" /></a>
+  <a href="https://jorishummel.com"><img src="https://img.shields.io/website?label=jorishummel.com&style=for-the-badge&url=https%3A%2F%2Fjorishummel.com" alt="jorishummel.com" /></a>
 </p>
 
-<hr>
+---
 
-## 🐍 My Contributions
+### About
+
+- 🔭 Currently building **[Matrix](https://github.com/ItzJoris03/matrix)** — a keyboard-driven dev engine and TUI written in Rust: manage local projects, cascading starts, declarative env injection, live logs.
+- 🌱 Studying Computer Science at [Karlstad University](https://www.kau.se/utbildning/program-och-kurser/program/TGKDV).
+- 💬 Daily drivers: **Rust, TypeScript, React, Node.js** — and whatever else breaks.
+
+### Languages & Tools
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=rust,ts,nodejs,react,vite,tailwind,mongodb,linux,git,java,postman,cs" alt="Skills" />
+</p>
+
+### Stats
+
+<div align="center">
+  <table>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="output/stats/stats-dark.svg" />
+          <img src="output/stats/stats-light.svg" alt="GitHub stats" />
+        </picture>
+      </td>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="output/stats/langs-dark.svg" />
+          <img src="output/stats/langs-light.svg" alt="Top languages" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+  <img width="400" src="https://streak-stats.demolab.com/?user=ItzJoris03&theme=transparent&border_radius=10&locale=en" alt="GitHub streak" />
+</div>
+
+### Contributions
 
 <div align="center">
   <picture>
@@ -42,19 +57,16 @@
   </picture>
 </div>
 
-<hr>
+---
 
 <div align="center">
-  <a href="https://jorishummel.com" target="_blank">
-    <img src="https://img.shields.io/website?label=jorishummel.com&style=for-the-badge&url=https%3A%2F%2Fjorishummel.com" height="35" alt="instagram logo"  />
-  </a>
   <a href="https://www.instagram.com/joris.h03/" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="instagram logo"  />
+    <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="instagram" />
   </a>
   <a href="https://www.linkedin.com/in/JorisH03/" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin" />
   </a>
   <a href="https://x.com/ItzJoris03" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="twitter logo"  />
+    <img src="https://img.shields.io/static/v1?message=X&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="x / twitter" />
   </a>
 </div>
